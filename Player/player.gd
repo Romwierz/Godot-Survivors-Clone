@@ -6,10 +6,8 @@ func _physics_process(delta):
 	movement(delta)
 
 func movement(delta):
-	var x_mov = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	var y_mov = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
-	var mov = Vector2(x_mov, y_mov)
+	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
 	
-	velocity = mov.normalized() * movement_speed
+	velocity = direction * movement_speed # nie ma potrzeby normalizowania
 	
-	move_and_slide() # built-in function that cause character to move
+	move_and_slide() # wbudowana funkcja sprawiająca, że postać się porusza
