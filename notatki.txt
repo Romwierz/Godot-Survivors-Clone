@@ -3,3 +3,7 @@ nodes:
 scenes: 
 
 Inherit (np. w ustawieniu parametru Texture) sprawia, że brane są ustawienia z Project Settings.
+
+Trzymanie Alt pozwala na przemieszczanie zaznaczonego Node.
+
+Camera2D - określa gdzie jest Viewport.
