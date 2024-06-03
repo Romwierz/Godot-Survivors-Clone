@@ -1,0 +1,5 @@
+nodes:
+
+scenes: 
+
+Inherit (np. w ustawieniu parametru Texture) sprawia, że brane są ustawienia z Project Settings.
