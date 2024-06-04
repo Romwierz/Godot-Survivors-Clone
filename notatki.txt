@@ -22,4 +22,30 @@ scenes:
 	- utworzenie AnimationPlayer
 	- w Sprite2D utworzenie Tracków na podstawie poszczególnych klatek animacji
 
-@onready var
+
+--> HurtBox: obiekt dostaje obrażenia
+--> HitBox: obiekt dotyka czegoś
+
+--> Zmiana nazw warstw wchodzących ze sobą w kolizje: Project Settings -> General -> Layer Names -> 2D Physics
+
+--> Editable Children po kliknięciu PPM na Node pozwala na edycje parametrów Nodes zdefiniowanych w innej Scene
+
+--> Debug -> Visible Collision Shapes pozwala na wyświetlanie collision shapes i obserawcję, czy wchodzą ze sobą w interakcje
+
+--> Signal pozwala na wywołanie funkcji w skrypcie Node'a, który tego sugnału nie wyemitował.
+
+--> "Signal Up, Call Down": dobrym zwyczajem jest, aby funkcja w skrypcie rodzica była wywoływana przez sygnał wyemitowany przez dziecko, a nie żeby funkcja ze skryptu rodzica była wywoływana przez skrypt dziecka
+	- rodzice mogą nie mieć odpowiedniej funkcji (metody)
+	- większa kontrola nad działaniem
+	- teoretycznie czystszy i łatwiejszy w obsłudze/kontroli kod
+
+--> Layers vs. Masks:
+	- Layer: "I exist on the following Layer(s)"
+	- Mask: "I will collide with items that exist on the following layer(s)"
+
+--> match == switch
+
+
+
+
+

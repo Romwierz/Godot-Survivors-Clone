@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var movement_speed = 20.0
+@export var hp = 80
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var sprite = $Sprite2D
@@ -30,3 +31,9 @@ func _physics_process(_delta):
 			#walkTimer.start()
 	
 	move_and_slide()
+
+func _on_hurt_box_hurt(damage):
+	hp -= damage
+	print("Enemy HP:", hp)
+	if hp <= 0:
+		queue_free() #usuwa przeciwnika z gry

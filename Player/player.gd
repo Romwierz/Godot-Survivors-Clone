@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-var movement_speed = 40.0
+@export var movement_speed = 40.0
+@export var hp = 80
 @onready var sprite = $Sprite2D
 @onready var walkTimer = get_node("%WalkTimer")
 
@@ -25,6 +26,8 @@ func movement():
 				sprite.frame = 1
 			walkTimer.start()
 	
-	print(get_velocity().x)
-	
 	move_and_slide() # wbudowana funkcja sprawiająca, że postać się porusza
+
+func _on_hurt_box_hurt(damage):
+	hp -= damage
+	print("Player HP:", hp)
