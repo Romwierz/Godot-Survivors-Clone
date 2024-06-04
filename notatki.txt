@@ -2,8 +2,24 @@ nodes:
 
 scenes: 
 
-Inherit (np. w ustawieniu parametru Texture) sprawia, że brane są ustawienia z Project Settings.
+--> Inherit (np. w ustawieniu parametru Texture) sprawia, że brane są ustawienia z Project Settings.
 
-Trzymanie Alt pozwala na przemieszczanie zaznaczonego Node.
+--> Trzymanie Alt pozwala na przemieszczanie zaznaczonego Node.
 
-Camera2D - określa gdzie jest Viewport.
+--> Camera2D - określa gdzie jest Viewport.
+
+
+--> Uzyskiwanie dostępu do Node (referencing):
+
+	a) $NodeName
+	b) @onready var name = $NodeName lub get_node("NodeName")
+	c) get_tree().get_first_node_in_group("group_name")
+	!!! % Access as Unique Name - jest to przydatne, ponieważ do Node domyślnie uzyskiwany jest dostęp za pomocą ścieżki 	              (umiejscowienia w projekcie), więc jej zmiana może doprowadzić do błędów. Ta opcja temu przeciwdziała.
+	https://www.reddit.com/r/godot/comments/115b00l/tip_1_use_unique_name_identifier/
+
+
+--> Jeden ze sposobów na animacje: 
+	- utworzenie AnimationPlayer
+	- w Sprite2D utworzenie Tracków na podstawie poszczególnych klatek animacji
+
+@onready var
