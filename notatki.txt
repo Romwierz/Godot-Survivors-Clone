@@ -45,6 +45,19 @@ scenes:
 
 --> match == switch
 
+PART 5
+
+--> Classes pozwalają na zmniejszenie kodu/niepisanie tego samego w wielu miejscach
+--> taką klasę można zapisać jako @export, dzięki czemu parametry instacji tej klasy można edytować w polu Inspector
+
+
+
+
+
+
+
+
+
 
 
 
