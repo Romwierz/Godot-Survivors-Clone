@@ -50,8 +50,26 @@ PART 5
 --> Classes pozwalają na zmniejszenie kodu/niepisanie tego samego w wielu miejscach
 --> taką klasę można zapisać jako @export, dzięki czemu parametry instacji tej klasy można edytować w polu Inspector
 
+PART 6
 
+--> CanvasItem -> Visibilty -> Top Level: On: sprawia, że pociski wychodzą z gracza
 
+--> Tweens - pozwalają na dynamiczną modyfikację parametrów (properties) Node'a widocznych w polu Inspector, np. zmiana rozmiaru pocisku; wykorzystanie
+	1) create_tween() do zmiennej (.set_parallel() pozwala na równoległą modyfikację atrybutów)
+	2) zmienna.tween_property() - dostanie się do odpowiedniego atrybutu
+	3) zmienna.play()
+	4) zmienna.tween_callback(...) pozwala na wywołanie jakiejś funkcji po zakończeniu tweena
+	5) set_trans() i set_ease() określają w jaki sposób dochodzi do przejścia pomiędzy różnymi wartościami atrybutu
+
+PART 8
+
+!!! ctrl + R pozwala na zamianę znakó/tekstu w zaznaczonym miejscu
+
+--> #region nazwa
+    #endregion
+
+--> zmienna last_mov -> ostatni uchwycony wektor ruchu postaci
+--> żeby uzyskać wektor ruchu pocisku tornada, do jego global_position dodany jest wektor last_mov, a jego odpowiednia współrzędna (lub obie, w zależności od wektora ruchu postaci) jest mnożona przez losową wartość (na przemian dodatnia i ujemna, dzięki czemu wektor ruchu pocisku oscyluje wokół wektora ruchu postaci --- tutaj nie rozumiem, czemu ta wartość jest jeszcze przemnożona przez np. 500)
 
 
 

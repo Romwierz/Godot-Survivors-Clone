@@ -18,11 +18,14 @@ func _on_area_entered(area):
 					collision.call_deferred("set", "disabled", true) # wyłącza collison (CollisionShape2D)
 					disableTimer.start()
 				1: #HitOnce
+					# sprawdzenie czy pocisk znajduje się w tablicy
 					if hit_once_array.has(area):
 						return
 					else:
+						# dodanie pocisku do tablicy
 						hit_once_array.append(area)
 						if area.has_signal("remove_from_array"):
+							# połączenie sygnału z funkcją usuwająca pocisk z tablicy
 							if not area.is_connected("remove_from_array", Callable(self, "remove_from_list")):
 								area.connect("remove_from_array", Callable(self, "remove_from_list"))
 				2: #DisableHitbox
@@ -39,6 +42,7 @@ func _on_area_entered(area):
 			if area.has_method("enemy_hit"):
 				area.enemy_hit(1)
 
+# usuwa z tablicy pocisk, który już spełnił swoje zadanie i został usunięty
 func remove_from_list(object):
 	if hit_once_array.has(object):
 		hit_once_array.erase(object)

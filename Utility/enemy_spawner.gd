@@ -23,7 +23,7 @@ func _on_timer_timeout():
 					enemy_spawn.global_position = get_random_position()
 					add_child(enemy_spawn)
 					counter += 1
-					print(counter)
+					#print(counter)
 
 func get_random_position():
 	# przemnożenie sprawia, że przeciwnicy nie respią się bezpośrednio na krawędziach
