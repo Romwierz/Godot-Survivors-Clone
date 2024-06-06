@@ -71,6 +71,12 @@ PART 8
 --> zmienna last_mov -> ostatni uchwycony wektor ruchu postaci
 --> żeby uzyskać wektor ruchu pocisku tornada, do jego global_position dodany jest wektor last_mov, a jego odpowiednia współrzędna (lub obie, w zależności od wektora ruchu postaci) jest mnożona przez losową wartość (na przemian dodatnia i ujemna, dzięki czemu wektor ruchu pocisku oscyluje wokół wektora ruchu postaci --- tutaj nie rozumiem, czemu ta wartość jest jeszcze przemnożona przez np. 500)
 
+--> position vs global_position:
+	Local co-ordinates are relative to the parent that the node is a child of. Global co-ordinates are an exact position on the 	screen (including off-screen space).
+
+	For example if you have a Node2D positioned at x:50, y:100 in the main scene. If you add a child node (say a Sprite), that 	Sprite will have a local position of 0,0 but a global position of 50, 100. Let’s imagine you want to move the Sprite 10 	pixels to the right. You set it’s position to 10,0 which is relative to it’s parent. Now it has global co-ordinates of 60, 	100 and local co-ordinates of 10, 0.
+
+
 
 
 
