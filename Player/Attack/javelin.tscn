@@ -19,13 +19,12 @@ texture = ExtResource("1_d86wi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.38419e-07, 2.38419e-07)
 rotation = -0.785398
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_g0rdk")
 disabled = true
 
 [node name="AttackTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 4.0
+wait_time = 5.0
 one_shot = true
 autostart = true
 

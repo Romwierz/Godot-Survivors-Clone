@@ -76,7 +76,12 @@ PART 8
 
 	For example if you have a Node2D positioned at x:50, y:100 in the main scene. If you add a child node (say a Sprite), that 	Sprite will have a local position of 0,0 but a global position of 50, 100. Let’s imagine you want to move the Sprite 10 	pixels to the right. You set it’s position to 10,0 which is relative to it’s parent. Now it has global co-ordinates of 60, 	100 and local co-ordinates of 10, 0.
 
+PART 10
 
+-->  call_deffered() calls a function in the main thread when it is not doing anything / idle. There is no specific delay length, it 	just runs when there is nothing on the main thread.
+
+--> GrabArea - przypisuje cel do gemu
+--> CollectArea - wywołuje funkcję collect()
 
 
 

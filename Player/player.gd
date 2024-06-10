@@ -4,6 +4,10 @@ extends CharacterBody2D
 @export var hp = 80
 var last_movement = Vector2.UP
 
+var experience = 0 
+var experience_level = 1 
+var collected_experience = 0 
+
 # Attacks
 var iceSpear = preload("res://Player/Attack/ice_spear.tscn")
 var tornado = preload("res://Player/Attack/tornado.tscn")
@@ -39,8 +43,13 @@ var enemy_close = []
 @onready var sprite = $Sprite2D
 @onready var walkTimer = get_node("%WalkTimer")
 
+#GUI
+@onready var expBar = get_node("%ExperienceBar")
+@onready var lblLevel = get_node("%lbl_level")
+
 func _ready():
 	attack()
+	set_expbar(experience, calculate_experiencecap())
 
 func _physics_process(_delta):
 	movement()
@@ -143,3 +152,63 @@ func spawn_javelin():
 		javelin_spawn.global_position = global_position
 		javelinBase.add_child(javelin_spawn)
 		calc_spawns -= 1
+
+func _on_grab_area_area_entered(area):
+	if area.is_in_group("loot"):
+		area.target = self
+
+func _on_collect_area_area_entered(area):
+	if area.is_in_group("loot"):
+		var gem_exp = area.collect()
+		calculate_experience(gem_exp)
+
+func calculate_experience(gem_exp):
+	var exp_required = calculate_experiencecap()
+	collected_experience += gem_exp
+	if experience + collected_experience >= exp_required: #level up
+		# po level upie może zostać niewykorzystane xp
+		collected_experience -= exp_required-experience
+		experience_level += 1
+		lblLevel.text = str("Level: ", experience_level)
+		experience = 0
+		# przeliczenie do kolejnego level upu
+		# nie wystarczy że jest to w pierwszej linii funkcji?
+		exp_required = calculate_experiencecap()
+		calculate_experience(0)
+		#levelup()
+	else:
+		experience += collected_experience
+		collected_experience = 0
+	
+	set_expbar(experience, exp_required)
+
+func calculate_experiencecap():
+	var exp_cap = experience_level
+	if experience_level < 20:
+		exp_cap = experience_level*5
+	elif experience_level < 40:
+		exp_cap = 95 * (experience_level-19)*8
+	else:
+		exp_cap = 255 + (experience_level-39)*12
+		
+	return exp_cap
+		
+func set_expbar(set_value = 1, set_max_value = 100):
+	expBar.value = set_value
+	expBar.max_value = set_max_value
+
+#func levelup():
+	#sndLevelUp.play()
+	#lblLevel.text = str("Level: ",experience_level)
+	#var tween = levelPanel.create_tween()
+	#tween.tween_property(levelPanel,"position",Vector2(220,50),0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+	#tween.play()
+	#levelPanel.visible = true
+	#var options = 0
+	#var optionsmax = 3
+	#while options < optionsmax:
+		#var option_choice = itemOptions.instantiate()
+		#option_choice.item = get_random_item()
+		#upgradeOptions.add_child(option_choice)
+		#options += 1
+	#get_tree().paused = true
