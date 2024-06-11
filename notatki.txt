@@ -89,8 +89,11 @@ PART 11
 
 --> preload() vs get_node() ???
 
---> get_tree().paused = true: pzuzuje grę
+--> get_tree().paused = true: pauzuje grę
 
+PART 12
+
+--> Project Settings -> Autoload: można ustawić scenę jako global variable
 
 
 

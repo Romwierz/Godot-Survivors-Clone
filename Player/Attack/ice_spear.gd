@@ -20,14 +20,18 @@ func _ready():
 	# rotation domyślnie ustawiony jest na -45, więc dodanie 135 da wektor = (1, 0)
 	rotation = angle.angle() + deg_to_rad(135)
 	
+	attack_size *= 1 + player.spell_size
 	match level:
 		1:
-			#hp = 1
-			#speed = 100
-			#damage = 5
-			#knockback_amount = 100
-			#attack_size = 1.0
 			pass
+		2:
+			pass
+		3:
+			hp = 2
+			damage = 8
+		4:
+			hp = 2
+			damage = 8
 
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1, 1)*attack_size, 1).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)

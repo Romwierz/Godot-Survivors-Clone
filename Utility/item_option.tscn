@@ -13,6 +13,7 @@ color = Color(0.548963, 0.548963, 0.548963, 1)
 script = ExtResource("1_1x2pk")
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 0
 offset_right = 180.0
 offset_bottom = 50.0
 theme_type_variation = &"FlatButton"

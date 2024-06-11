@@ -41,4 +41,4 @@ spawns = Array[ExtResource("5_vr7u7")]([SubResource("Resource_cuawq"), SubResour
 [node name="Loot" type="Node" parent="." groups=["loot"]]
 
 [node name="ExperienceGem" parent="Loot" instance=ExtResource("6_upwcl")]
-experience = 10
+experience = 500

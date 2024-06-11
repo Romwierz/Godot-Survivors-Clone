@@ -5,7 +5,7 @@ var hp = 9999
 var speed = 200.0
 var damage = 10
 var knockback_amount = 100
-var paths = 3
+var paths = 1
 var attack_size = 1.0
 var attack_speed = 5.0
 
@@ -35,11 +35,21 @@ func _ready():
 func update_javelin():
 	level = player.javelin_level
 	
+	attack_size *= 1 + player.spell_size
+	attack_speed *= 1 - player.spell_cooldown
 	match level:
 		1:
 			pass
+		2:
+			paths = 2
+		3:
+			paths = 3
+		4:
+			paths = 3
+			damage = 15
+			knockback_amount = 120
 	
-	scale =Vector2(1.0, 1.0) * attack_size
+	scale = Vector2(1.0, 1.0) * attack_size
 	attackTimer.wait_time = attack_speed
 
 func _physics_process(delta):

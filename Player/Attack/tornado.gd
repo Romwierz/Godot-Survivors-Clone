@@ -17,9 +17,17 @@ signal remove_from_array(object)
 @onready var player = get_tree().get_first_node_in_group("player")
 
 func _ready():
+	
+	attack_size *= 1 + player.spell_size
 	match level:
 		1:
 			pass
+		2:
+			pass
+		3:
+			pass
+		4:
+			knockback_amount = 125
 	
 	var move_to_less = Vector2.ZERO
 	var move_to_more = Vector2.ZERO
