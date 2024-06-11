@@ -83,6 +83,14 @@ PART 10
 --> GrabArea - przypisuje cel do gemu
 --> CollectArea - wywołuje funkcję collect()
 
+PART 11
+
+--> Inspector -> Node -> Process: pozwala określić, kiedy Node jest przetwarzana procesowana, np. jeśli jeśli rodzic wywoła metodę pause, to wszystkie dzieci, które będą miały ustawione Mode na Inherit również zostaną zapauzowane, ale można też ustawić When Paused (wtedy dziecko jest przetwarzane, kiedy rodzic zapauzuje)
+
+--> preload() vs get_node() ???
+
+--> get_tree().paused = true: pzuzuje grę
+
 
 
 

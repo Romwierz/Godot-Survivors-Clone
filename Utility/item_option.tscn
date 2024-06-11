@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://dctm4r4r2kfjl"]
+
+[ext_resource type="Script" path="res://Utility/item_option.gd" id="1_1x2pk"]
+[ext_resource type="Texture2D" uid="uid://biawgxknwpjby" path="res://Textures/Items/Weapons/sword.png" id="1_irbrg"]
+[ext_resource type="FontFile" uid="uid://uiragek83a2d" path="res://Font/tenderness.otf" id="2_oa1ci"]
+
+[node name="ItemOption" type="ColorRect"]
+custom_minimum_size = Vector2(180, 50)
+offset_right = 180.0
+offset_bottom = 50.0
+mouse_filter = 1
+color = Color(0.548963, 0.548963, 0.548963, 1)
+script = ExtResource("1_1x2pk")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 180.0
+offset_bottom = 50.0
+theme_type_variation = &"FlatButton"
+
+[node name="ColorRect" type="ColorRect" parent="Button"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 26.0
+offset_bottom = 26.0
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="ItemIcon" type="TextureRect" parent="Button/ColorRect"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_irbrg")
+
+[node name="lbl_name" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 2.0
+offset_right = 79.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("2_oa1ci")
+text = "Name"
+
+[node name="lbl_description" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 27.0
+offset_right = 166.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("2_oa1ci")
+theme_override_font_sizes/font_size = 8
+text = "Description of item"
+
+[node name="lbl_level" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 3.0
+offset_right = 170.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("2_oa1ci")
+theme_override_font_sizes/font_size = 12
+text = "level: 1
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
