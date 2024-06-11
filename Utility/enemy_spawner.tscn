@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dndq1q5gmc2jp"]
 
 [ext_resource type="Script" path="res://Utility/enemy_spawner.gd" id="1_7wykw"]
-[ext_resource type="PackedScene" uid="uid://duvj22mwpa0kw" path="res://Enemy/enemy.tscn" id="2_tdomp"]
+[ext_resource type="PackedScene" uid="uid://duvj22mwpa0kw" path="res://Enemy/enemy_kobold_weak.tscn" id="2_tdomp"]
 [ext_resource type="Script" path="res://Utility/spawn_info.gd" id="3_csiou"]
 
 [sub_resource type="Resource" id="Resource_itbrl"]
