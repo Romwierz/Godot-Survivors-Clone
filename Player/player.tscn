@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cpkj2ral8ffej"]
+[gd_scene load_steps=15 format=3 uid="uid://cpkj2ral8ffej"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_ecfh1"]
 [ext_resource type="Texture2D" uid="uid://oycoesj3fx2e" path="res://Textures/Player/player_sprite.png" id="1_p2ir5"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://eb22bqjfcbcc" path="res://Textures/GUI/exp_background.png" id="4_58ubi"]
 [ext_resource type="Texture2D" uid="uid://cmsvw8aj5uiwi" path="res://Textures/GUI/exp_progress.png" id="5_5ipof"]
 [ext_resource type="FontFile" uid="uid://uiragek83a2d" path="res://Font/tenderness.otf" id="6_juo21"]
+[ext_resource type="Texture2D" uid="uid://uqdkqghrcwnl" path="res://Textures/GUI/healthbar.png" id="7_e447c"]
 [ext_resource type="AudioStream" uid="uid://d3sc7640pkp6s" path="res://Audio/SoundEffect/levelup.ogg" id="7_pc0hi"]
+[ext_resource type="Texture2D" uid="uid://cnhoxwrkcgpok" path="res://Textures/GUI/health.png" id="8_yech4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5oov6"]
 radius = 4.0
@@ -123,6 +125,50 @@ theme_override_font_sizes/font_size = 16
 text = "Level: 1"
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0.392157)
+layout_mode = 0
+offset_left = 304.0
+offset_top = 200.0
+offset_right = 336.0
+offset_bottom = 208.0
+value = 50.0
+texture_under = ExtResource("7_e447c")
+texture_progress = ExtResource("8_yech4")
+
+[node name="lbl_timer" type="Label" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 280.0
+offset_top = 20.0
+offset_right = 360.0
+offset_bottom = 44.0
+theme_override_fonts/font = ExtResource("6_juo21")
+theme_override_font_sizes/font_size = 20
+text = "00:00
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollectedWeapons" type="GridContainer" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 24.0
+offset_right = 208.0
+offset_bottom = 40.0
+columns = 10
+
+[node name="CollectedUpgrades" type="GridContainer" parent="GUILayer/GUI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 208.0
+offset_bottom = 56.0
+columns = 10
 
 [node name="LevelUp" type="Panel" parent="GUILayer"]
 unique_name_in_owner = true

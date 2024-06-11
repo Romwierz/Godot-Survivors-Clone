@@ -10,18 +10,18 @@
 [sub_resource type="Resource" id="Resource_cuawq"]
 script = ExtResource("5_vr7u7")
 time_start = 0
-time_end = 5
-enemy = ExtResource("3_r8ykk")
-enemy_num = 3
-enemy_spawn_delay = 0
-
-[sub_resource type="Resource" id="Resource_x45cc"]
-script = ExtResource("5_vr7u7")
-time_start = 5
-time_end = 20
+time_end = 60
 enemy = ExtResource("3_r8ykk")
 enemy_num = 2
-enemy_spawn_delay = 0
+enemy_spawn_delay = 1
+
+[sub_resource type="Resource" id="Resource_ntrl5"]
+script = ExtResource("5_vr7u7")
+time_start = 60
+time_end = 120
+enemy = ExtResource("3_r8ykk")
+enemy_num = 5
+enemy_spawn_delay = 1
 
 [node name="World" type="Node2D"]
 
@@ -34,11 +34,11 @@ region_rect = Rect2(0, 0, 4000, 4000)
 
 [node name="Player" parent="." instance=ExtResource("2_ib4cr")]
 position = Vector2(24, 23)
+hp = 80
 
 [node name="EnemySpawner" parent="." instance=ExtResource("3_g6rve")]
-spawns = Array[ExtResource("5_vr7u7")]([SubResource("Resource_cuawq"), SubResource("Resource_x45cc")])
+spawns = Array[ExtResource("5_vr7u7")]([SubResource("Resource_cuawq"), SubResource("Resource_ntrl5")])
 
 [node name="Loot" type="Node" parent="." groups=["loot"]]
 
 [node name="ExperienceGem" parent="Loot" instance=ExtResource("6_upwcl")]
-experience = 500
