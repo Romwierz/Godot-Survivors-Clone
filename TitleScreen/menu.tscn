@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhdq2ukgdohrd"]
+
+[ext_resource type="FontFile" uid="uid://uiragek83a2d" path="res://Font/tenderness.otf" id="1_83vld"]
+[ext_resource type="Script" path="res://TitleScreen/menu.gd" id="1_ol5ha"]
+[ext_resource type="PackedScene" uid="uid://b1bb46f7dckj7" path="res://Utility/basic_button.tscn" id="3_k64nn"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ol5ha")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 650.0
+offset_bottom = 368.0
+color = Color(0.743183, 0.0694518, 0.80642, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("1_83vld")
+theme_override_font_sizes/font_size = 72
+text = "Survivors Clone 2137"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_play" parent="." instance=ExtResource("3_k64nn")]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 250.0
+offset_right = 360.0
+offset_bottom = 280.0
+text = "Play"
+
+[node name="btn_exit" parent="." instance=ExtResource("3_k64nn")]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 290.0
+offset_right = 360.0
+offset_bottom = 320.0
+text = "Quit"
+
+[connection signal="click_end" from="btn_play" to="." method="_on_btn_play_click_end"]
+[connection signal="click_end" from="btn_exit" to="." method="_on_btn_exit_click_end"]

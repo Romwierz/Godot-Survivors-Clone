@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c4un26q2qvyck"]
+[gd_scene load_steps=22 format=3 uid="uid://c4un26q2qvyck"]
 
 [ext_resource type="Texture2D" uid="uid://c38gxddd3y7ld" path="res://Textures/dirt_full_new.png" id="1_b4vis"]
 [ext_resource type="PackedScene" uid="uid://cpkj2ral8ffej" path="res://Player/player.tscn" id="2_ib4cr"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c1i3eew3cl3st" path="res://Enemy/enemy_cyclops.tscn" id="7_t44vt"]
 [ext_resource type="PackedScene" uid="uid://bpyku8on4qpg6" path="res://Enemy/enemy_juggernaut.tscn" id="8_w0mme"]
 [ext_resource type="PackedScene" uid="uid://d0j44g6vu85o4" path="res://Enemy/enemy_super.tscn" id="9_cpaxl"]
+[ext_resource type="AudioStream" uid="uid://cbduglsgntb1w" path="res://Audio/Music/battleThemeA.mp3" id="11_wb6of"]
+[ext_resource type="Script" path="res://Audio/Music/snd_Music.gd" id="12_jact7"]
 
 [sub_resource type="Resource" id="Resource_ai4em"]
 script = ExtResource("5_vr7u7")
@@ -102,3 +104,12 @@ spawns = Array[ExtResource("5_vr7u7")]([SubResource("Resource_ai4em"), SubResour
 [node name="Loot" type="Node" parent="." groups=["loot"]]
 
 [node name="ExperienceGem" parent="Loot" instance=ExtResource("6_upwcl")]
+
+[node name="snd_Music" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("11_wb6of")
+volume_db = -20.0
+autoplay = true
+script = ExtResource("12_jact7")
+
+[connection signal="playerdeath" from="Player" to="snd_Music" method="_on_player_playerdeath"]

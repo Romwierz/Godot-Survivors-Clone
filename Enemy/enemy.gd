@@ -4,7 +4,7 @@ extends CharacterBody2D
 @export var hp = 80
 @export var knockback_recovery = 3.5
 @export var experience = 1
-@export var damage = 1
+@export var enemy_damage = 1
 var knockback = Vector2.ZERO
 
 @onready var player = get_tree().get_first_node_in_group("player")
@@ -22,7 +22,7 @@ signal remove_from_array(object)
 
 func _ready():
 	animation.play("walk")
-	hitBox.damage = damage
+	hitBox.damage = enemy_damage
 
 # "_" przy delcie oznacza, że nie jest ona wykorzystywana
 func _physics_process(_delta):
